@@ -2,9 +2,12 @@ from circleshape import CircleShape
 from constants import PLAYER_RADIUS, LINE_WIDTH, PLAYER_TURN_SPEED, PLAYER_SPEED
 import pygame
 
+
 class Player(CircleShape):
     def __init__(self, x, y):
-        super().__init__( x, y, PLAYER_RADIUS)
+        super().__init__(x, y, PLAYER_RADIUS)
+        for group in self.containers:
+            group.add(self)
         self.rotation = 0
         self.radius = PLAYER_RADIUS
 
